@@ -3,7 +3,6 @@ package client // import "github.com/quiver-london/wc-api-go/v3/client"
 import (
 	"github.com/quiver-london/wc-api-go/v3/request"
 	"net/http"
-	"net/url"
 )
 
 // Client is upper level class which delegate all work to Requester
@@ -12,7 +11,7 @@ type Client struct {
 }
 
 // Get Method loads data from Endpoint with specified parameters
-func (c *Client) Get(endpoint string, parameters url.Values) (*http.Response, error) {
+func (c *Client) Get(endpoint string, parameters map[string]interface{}) (*http.Response, error) {
 	return c.sender.Send(request.Request{
 		Method:   "GET",
 		Endpoint: endpoint,
@@ -21,7 +20,7 @@ func (c *Client) Get(endpoint string, parameters url.Values) (*http.Response, er
 }
 
 // Post Method usually creates new instances
-func (c *Client) Post(endpoint string, data url.Values) (*http.Response, error) {
+func (c *Client) Post(endpoint string, data map[string]interface{}) (*http.Response, error) {
 	return c.sender.Send(request.Request{
 		Method:   "POST",
 		Endpoint: endpoint,
@@ -30,7 +29,7 @@ func (c *Client) Post(endpoint string, data url.Values) (*http.Response, error) 
 }
 
 // Put Method usually update existing instances
-func (c *Client) Put(endpoint string, data url.Values) (*http.Response, error) {
+func (c *Client) Put(endpoint string, data map[string]interface{}) (*http.Response, error) {
 	return c.sender.Send(request.Request{
 		Method:   "PUT",
 		Endpoint: endpoint,
@@ -39,7 +38,7 @@ func (c *Client) Put(endpoint string, data url.Values) (*http.Response, error) {
 }
 
 // Delete Method usually removes existing instances
-func (c *Client) Delete(endpoint string, parameters url.Values) (*http.Response, error) {
+func (c *Client) Delete(endpoint string, parameters map[string]interface{}) (*http.Response, error) {
 	return c.sender.Send(request.Request{
 		Method:   "DELETE",
 		Endpoint: endpoint,

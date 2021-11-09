@@ -7,13 +7,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 	"testing"
 )
 
 func TestRequest(t *testing.T) {
-	parameters := url.Values{}
-	parameters.Set("foo", "bar")
+	parameters := make(map[string]interface{})
+
+	parameters["foo"] = "bar"
 
 	methods := []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 

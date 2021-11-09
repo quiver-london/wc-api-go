@@ -24,7 +24,7 @@ func (b *Builder) GetURL(req request.Request) string {
 func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
 	var query URL.Values
 	if "GET" == req.Method || "DELETE" == req.Method {
-		query = req.Values
+		//query = req.Values
 	} else {
 		query = nil
 	}
