@@ -3,9 +3,10 @@ package net // import "github.com/quiver-london/wc-api-go/v3/net"
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/quiver-london/wc-api-go/v3/request"
 	"io"
 	"net/http"
+
+	"github.com/quiver-london/wc-api-go/v3/request"
 )
 
 // Sender provides HTTP Requests
@@ -35,6 +36,7 @@ func (s *Sender) prepareRequest(req request.Request) *http.Request {
 	}
 	request, _ := s.requestCreator.NewRequest(req.Method, URL, body)
 	s.requestEnricher.EnrichRequest(request, URL)
+	request.Header.Set("Content-Type", "application/json")
 	return request
 }
 
