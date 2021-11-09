@@ -1,4 +1,4 @@
-module github.com/quiver-london/wc-api-go
+module github.com/quiver-london/wc-api-go/v1
 
 go 1.16
 
