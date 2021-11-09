@@ -7,15 +7,17 @@ A Golang wrapper for the WooCommerce REST API. Easily interact with the WooComme
 ## Installation
 
 To install this WooCommerce REST API Golang Wrapper, use `go get`:
+
 ```
-go get github.com/tgglv/wc-api-go
+go get github.com/quiver-london/wc-api-go/v3
 ```
 
 ## Staying up to date
 
 To update WooCommerce REST API Golang Wrapper to the latest version, use
+
 ```
-go get -u github.com/tgglv/wc-api-go
+go get -u github.com/quiver-london/wc-api-go/v3
 ```
 
 ## Getting started
@@ -29,7 +31,7 @@ Check out the WooCommerce API endpoints and data that can be manipulated in <htt
 Setup for the new WP REST API integration:
 
 ```go
-import "github.com/tgglv/wc-api-go/client"
+import "github.com/quiver-london/wc-api-go/v3/client"
 
 func main() {
 	factory := client.Factory{}
@@ -44,36 +46,36 @@ func main() {
 		},
 	})
 
-	// Further using of client ... 
+	// Further using of client ...
 }
 ```
 
 ### Options
 
-|       Option      |   Type   | Required |                Description                 |
-| ----------------- | -------- | -------- | ------------------------------------------ |
-| `URL`             | `string` | yes      | Your Store URL, example: http://woo.dev/   |
-| `Key`    | `string` | yes      | Your API consumer key                      |
-| `Secret` | `string` | yes      | Your API consumer secret                   |
-| `Options`         | `struct`  | no       | Extra arguments (see client options table) |
+| Option    | Type     | Required | Description                                |
+| --------- | -------- | -------- | ------------------------------------------ |
+| `URL`     | `string` | yes      | Your Store URL, example: http://woo.dev/   |
+| `Key`     | `string` | yes      | Your API consumer key                      |
+| `Secret`  | `string` | yes      | Your API consumer secret                   |
+| `Options` | `struct` | no       | Extra arguments (see client options table) |
 
 #### Advanced options
 
-|        Option       |   Type   | Required |                                                      Description                                                       |
-|---------------------|----------|----------|------------------------------------------------------------------------------------------------------------------------|
-| `WPAPI`            | `bool`   | no       | Allow make requests to the new WP REST API integration (WooCommerce 2.6 or later)                                      |
+| Option            | Type     | Required | Description                                                                                                            |
+| ----------------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `WPAPI`           | `bool`   | no       | Allow make requests to the new WP REST API integration (WooCommerce 2.6 or later)                                      |
 | `WPAPIPrefix`     | `string` | no       | Custom WP REST API URL prefix, used to support custom prefixes created with the `rest_url_prefix` filter               |
-| `Version`           | `string` | no       | API version, default is `v3`                                                                                           |
-| `Timeout`           | `int`    | no       | Request timeout, default is `15`                                                                                       |
-| `FollowRedirects`  | `bool`   | no       | Allow the API call to follow redirects                                                                                 |
-| `VerifySsl`        | `bool`   | no       | Verify SSL when connect, use this option as `false` when need to test with self-signed certificates, default is `true` |
+| `Version`         | `string` | no       | API version, default is `v3`                                                                                           |
+| `Timeout`         | `int`    | no       | Request timeout, default is `15`                                                                                       |
+| `FollowRedirects` | `bool`   | no       | Allow the API call to follow redirects                                                                                 |
+| `VerifySsl`       | `bool`   | no       | Verify SSL when connect, use this option as `false` when need to test with self-signed certificates, default is `true` |
 | `QueryStringAuth` | `bool`   | no       | Force Basic Authentication as query string when `true` and using under HTTPS, default is `false`                       |
-| `OAuthTimestamp`   | `string` | no       | Custom oAuth timestamp, default is `time()`                                                                            |
-| `UserAgent`        | `string` | no       | Custom user-agent, default is `WooCommerce API Client-PHP`                                                             |
+| `OAuthTimestamp`  | `string` | no       | Custom oAuth timestamp, default is `time()`                                                                            |
+| `UserAgent`       | `string` | no       | Custom user-agent, default is `WooCommerce API Client-PHP`                                                             |
 
 ## Methods
 
-|    Params    |   Type   |                         Description                          |
+| Params       | Type     | Description                                                  |
 | ------------ | -------- | ------------------------------------------------------------ |
 | `endpoint`   | `string` | WooCommerce API endpoint, example: `customers` or `order/12` |
 | `data`       | `array`  | Only for POST and PUT, data that will be converted to JSON   |
@@ -111,16 +113,15 @@ c.Options(endpoint)
 
 #### Response
 
-All methods will return `*http.Response` on success and returning an  `error` on failure.
-
+All methods will return `*http.Response` on success and returning an `error` on failure.
 
 ```go
 package main
 
 import (
 	"fmt"
-	"github.com/tgglv/wc-api-go/client"
-	"github.com/tgglv/wc-api-go/options"
+	"github.com/quiver-london/wc-api-go/v3/client"
+	"github.com/quiver-london/wc-api-go/v3/options"
 	"io/ioutil"
 	"log"
 	"net/http"

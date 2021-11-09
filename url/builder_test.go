@@ -1,9 +1,9 @@
 package url
 
 import (
+	"github.com/quiver-london/wc-api-go/v3/options"
+	"github.com/quiver-london/wc-api-go/v3/request"
 	"github.com/stretchr/testify/assert"
-	"github.com/tgglv/wc-api-go/options"
-	"github.com/tgglv/wc-api-go/request"
 	URL "net/url"
 	"testing"
 )

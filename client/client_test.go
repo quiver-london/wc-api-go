@@ -2,9 +2,9 @@ package client
 
 import (
 	"errors"
+	"github.com/quiver-london/wc-api-go/v3/request"
+	"github.com/quiver-london/wc-api-go/v3/test"
 	"github.com/stretchr/testify/assert"
-	"github.com/tgglv/wc-api-go/request"
-	"github.com/tgglv/wc-api-go/test"
 	"io/ioutil"
 	"net/http"
 	"net/url"

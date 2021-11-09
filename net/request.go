@@ -1,4 +1,4 @@
-package net // import "github.com/tgglv/wc-api-go/net"
+package net // import "github.com/quiver-london/wc-api-go/v3/net"
 
 import "net/http"
 

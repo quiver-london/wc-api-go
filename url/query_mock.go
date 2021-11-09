@@ -1,7 +1,7 @@
 package url
 
 import (
-	"github.com/tgglv/wc-api-go/request"
+	"github.com/quiver-london/wc-api-go/v3/request"
 	URL "net/url"
 )
 

@@ -1,10 +1,10 @@
-package client // import "github.com/tgglv/wc-api-go/client"
+package client // import "github.com/quiver-london/wc-api-go/v3/client"
 
 import (
-	"github.com/tgglv/wc-api-go/auth"
-	"github.com/tgglv/wc-api-go/net"
-	"github.com/tgglv/wc-api-go/options"
-	"github.com/tgglv/wc-api-go/url"
+	"github.com/quiver-london/wc-api-go/v3/auth"
+	"github.com/quiver-london/wc-api-go/v3/net"
+	"github.com/quiver-london/wc-api-go/v3/options"
+	"github.com/quiver-london/wc-api-go/v3/url"
 	"net/http"
 )
 
