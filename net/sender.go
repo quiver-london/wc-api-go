@@ -37,6 +37,7 @@ func (s *Sender) prepareRequest(req request.Request) *http.Request {
 	request, _ := s.requestCreator.NewRequest(req.Method, URL, body)
 	s.requestEnricher.EnrichRequest(request, URL)
 	request.Header.Set("Content-Type", "application/json")
+	request.Header.Set("UserAgent", "QuiverService/1.0")
 	return request
 }
 
