@@ -19,26 +19,22 @@ type Builder struct {
 func (b *Builder) GetURL(req request.Request) string {
 	query := b.getFilteredQuery(req)
 	urlWithEndpoint := b.getBaseURL() + req.Endpoint
+	fmt.Println(query.Encode())
 	if query.Encode() != "" {
-		urlWithEndpoint = urlWithEndpoint + "?" + query.Encode()
+		urlWithEndpoint += fmt.Sprintf("?%s", query.Encode())
 	}
 	fmt.Println(urlWithEndpoint)
 	return urlWithEndpoint
 }
 
 func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
-	var query URL.Values
+	query := URL.Values{}
 	if req.Method == "GET" || req.Method == "DELETE" {
-		query := URL.Values{}
 		for k, v := range req.Values {
 			query.Add(k, v.(string))
 		}
-	} else {
-		query = nil
 	}
-	if nil == query {
-		query = URL.Values{}
-	}
+	fmt.Println(query)
 	return query
 }
 
