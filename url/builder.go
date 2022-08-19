@@ -1,7 +1,6 @@
 package url // import "github.com/quiver-london/wc-api-go/v3/url"
 
 import (
-	"fmt"
 	URL "net/url"
 	"strings"
 
@@ -19,8 +18,11 @@ type Builder struct {
 func (b *Builder) GetURL(req request.Request) string {
 	query := b.getFilteredQuery(req)
 	urlWithEndpoint := b.getBaseURL() + req.Endpoint
-	values := b.queryEnricher.GetEnrichedQuery(urlWithEndpoint, query, req)
-	return urlWithEndpoint + "?" + values.Encode()
+	q := ""
+	if query != nil {
+		q = "?" + query.Encode()
+	}
+	return urlWithEndpoint + q
 }
 
 func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
@@ -30,7 +32,6 @@ func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
 		for k, v := range req.Values {
 			query.Add(k, v.(string))
 		}
-		fmt.Println(query)
 	} else {
 		query = nil
 	}
