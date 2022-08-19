@@ -19,11 +19,9 @@ type Builder struct {
 func (b *Builder) GetURL(req request.Request) string {
 	query := b.getFilteredQuery(req)
 	urlWithEndpoint := b.getBaseURL() + req.Endpoint
-	fmt.Println(query.Encode())
 	if query.Encode() != "" {
 		urlWithEndpoint += fmt.Sprintf("?%s", query.Encode())
 	}
-	fmt.Println(urlWithEndpoint)
 	return urlWithEndpoint
 }
 
@@ -34,7 +32,6 @@ func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
 			query.Add(k, v.(string))
 		}
 	}
-	fmt.Println(query)
 	return query
 }
 
