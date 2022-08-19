@@ -1,6 +1,7 @@
 package url // import "github.com/quiver-london/wc-api-go/v3/url"
 
 import (
+	"fmt"
 	URL "net/url"
 	"strings"
 
@@ -25,10 +26,11 @@ func (b *Builder) GetURL(req request.Request) string {
 func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
 	var query URL.Values
 	if req.Method == "GET" || req.Method == "DELETE" {
-		query := make(URL.Values)
+		query := URL.Values{}
 		for k, v := range req.Values {
-			query[k] = []string{v.(string)}
+			query.Add(k, v.(string))
 		}
+		fmt.Println(query)
 	} else {
 		query = nil
 	}
