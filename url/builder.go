@@ -29,7 +29,7 @@ func (b *Builder) getFilteredQuery(req request.Request) URL.Values {
 	query := URL.Values{}
 	if req.Method == "GET" || req.Method == "DELETE" {
 		for k, v := range req.Values {
-			query.Add(k, v.(string))
+			query.Add(k, fmt.Sprintf("%v", v))
 		}
 	}
 	return query
